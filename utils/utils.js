@@ -1,9 +1,24 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import {
+    getAuth,
+    signOut,
+    onAuthStateChanged,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import { 
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc 
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import { 
+    getStorage,
+    ref,
+    uploadBytes,
+    getDownloadURL 
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
     apiKey: "AIzaSyA_aBLh6Era7JFOndvvxSlZedyTepv1O-c",
     authDomain: "event-planner-22d6b.firebaseapp.com",
@@ -16,4 +31,30 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-console.log("App =>", app);
+// console.log("App =>", app);
+
+const auth = getAuth(app);
+// console.log("Auth =>", auth);
+
+const db = getFirestore(app);
+// console.log("Database =>", db);
+
+
+const storage = getStorage(app);
+// console.log("Storage =>", storage);
+
+export {
+    auth,
+    db,
+    storage,
+    onAuthStateChanged,
+    doc,
+    setDoc,
+    getDoc,
+    createUserWithEmailAndPassword,
+    ref,
+    uploadBytes,
+    signOut,
+    getDownloadURL,
+    signInWithEmailAndPassword
+}
