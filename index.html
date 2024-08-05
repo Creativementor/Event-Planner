@@ -22,22 +22,77 @@
                 <a href="tel:5541251234" class="text-sm  text-gray-500 dark:text-white hover:underline">(+92) (312)
                     (273-8505)</a>
 
+                <a href="createEvent/index.html">Create Event</a>
+
                 <a href="/Profile/index.html">
 
                     <img id="user_img" class="w-10 h-10 rounded-full" style="display: none;"
-                    src="https://images.unsplash.com/photo-1492447166138-50c3889fccb1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWVufGVufDB8fDB8fHww" />
+                        src="https://images.unsplash.com/photo-1492447166138-50c3889fccb1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWVufGVufDB8fDB8fHww" />
 
                 </a>
 
-                <a href="/Auth/login/index.html" id="login_link" class="text-sm  text-blue-900 dark:text-blue-700 hover:underline">Login</a>
+                <a href="/Auth/login/index.html" id="login_link"
+                    class="text-sm  text-blue-900 dark:text-blue-700 hover:underline">Login</a>
                 <span id="logout_btn" class="text-black-900 cursor-pointer"><i
                         class="fa-solid fa-arrow-right-from-bracket"></i></span>
             </div>
         </div>
     </nav>
 
-    <script src="app.js" type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <div id="event_cards_containers" class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+        <div class="relative">
+            <img src="https://via.placeholder.com/400x250" alt="Event Image" class="w-full h-48 object-cover">
+            <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black to-transparent text-white">
+                <h2 class="text-2xl font-bold mb-2">Music Festival</h2>
+                <p class="text-sm">August 20, 2024 • 07:00 PM</p>
+            </div>
+        </div>
+        <div class="p-6">
+            <!-- Text Area for Event Description -->
+            <div class="mb-4">
+                <textarea id="event-description" class="w-full h-24 p-4 border border-gray-300 rounded-md resize-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter event description here...">Experience an exhilarating day filled with performances from renowned artists, food trucks, and activities for all ages. Don’t miss out on this vibrant celebration of music and community!</textarea>
+            </div>
+            <div class="flex flex-col text-gray-600 space-y-2">
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                    <span>Central Park, New York</span>
+                </div>
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                    <span>August 20, 2024</span>
+                </div>
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3"></path>
+                    </svg>
+                    <span>07:00 PM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+        <script src="app.js" type="module">
+            document.addEventListener('DOMContentLoaded', function () {
+            const element = document.getElementById('event-description');
+            if (element) {
+                // Example of setting new text or updating the text area
+                element.value = 'Updated Description'; // Update the text in the text area
+            } else {
+                console.error('Element with ID "event-description" not found.');
+            }
+        });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 </body>
 
 </html>
