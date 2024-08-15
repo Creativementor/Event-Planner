@@ -52,7 +52,7 @@ event_form.addEventListener("submit", (e) => {
                 addDoc(eventCollections, eventInfo)
 
                     .then((snapshot) => {
-                       
+
                         console.log("Document Added");
 
                         window.location.href = "/";
