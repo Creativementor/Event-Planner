@@ -15,51 +15,47 @@ const event_form = document.getElementById("event_form");
 event_form.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(e);
-    //console.log(e.target);
 
     const eventInfo = {
         banner: e.target[0].files[0],
         title: e.target[1].value,
         description: e.target[2].value,
-        location: e.target[3].value,
-        date: e.target[4].value,
-        time: e.target[5].value,
+        createdByEmail: e.target[3].value,
+        location: e.target[4].value,
+        date: e.target[5].value,
+        time: e.target[6].value,
     }
 
+    console.log("eventInfo =>", eventInfo);
 
-    console.log(eventInfo);
+    const imgRef = ref(storage, eventInfo.banner.name)
 
+    uploadBytes(imgRef, eventInfo.banner)
 
-    const imgRef = ref(storage, eventInfo.banner.name); //yahn hum event ka naam or file ka naam denge 
-    uploadBytes(imgRef, eventInfo.banner).then(() => {
-        console.log("File Upload has been Done");
+        .then(() => {
 
+            console.log("File Uplaod Done");
 
-        getDownloadURL(imgRef)
-
-
-            .then((url) => {
+            getDownloadURL(imgRef).then((url) => {
 
                 console.log("Got URL", url);
 
                 eventInfo.banner = url;
 
+                const eventCollection = collection(db, "events")
 
-                //add documents to events collections
+                addDoc(eventCollection, eventInfo)
 
-                const eventCollections = collection(db, "events")
-
-                addDoc(eventCollections, eventInfo)
-
-                    .then((snapshot) => {
+                    .then(() => {
 
                         console.log("Document Added");
 
                         window.location.href = "/";
+
                     })
+
             })
 
+        })
 
-    })
-     .catch((err) => alert(err))
 });

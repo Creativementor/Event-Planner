@@ -62,32 +62,71 @@ async function getAllEvents() {
             const event = doc.data();
             console.log(event);
 
-            const { banner, title, description, createdByEmail, location, date, time} = event;
+            const { banner, title, description, createdByEmail, location, date, time } = event;
 
 
-            const cards = `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            const cards = `<div id="events_cards_container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-8 bg-gray-100">
         
-        <div id="events_cards_container" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md">
-            <img class="rounded-t-lg" src="${banner}" alt="Event Image">
-            <div class="p-4">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">${title}</h5>
-                <p class="mb-3 font-normal text-gray-700">${description}</p>
-                <hr class="my-2 border-gray-300">
-                <p class="mb-3 font-normal text-gray-700"><strong>Email:</strong> ${createdByEmail}</p>
-                <hr class="my-2 border-gray-300">
-                <p class="mb-3 font-normal text-gray-700"><strong>Location:</strong> ${location}</p>
-                <hr class="my-2 border-gray-300">
-                <p class="mb-3 font-normal text-gray-700"><strong>Date:</strong> ${date}</p>
-                <hr class="my-2 border-gray-300">
-                <p class="mb-3 font-normal text-gray-700"><strong>Time:</strong> ${time}</p>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
+          <img src="${banner}" alt="Event Image" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-3 text-gray-800">${title}</h3>
+            <p class="text-gray-600 mb-4"${description}</p>
+            <div class="text-sm text-gray-700 space-y-2">
+              <p><strong>Email:</strong> ${createdByEmail}</p>
+              <p><strong>Location:</strong> ${location}</p>
+              <p><strong>Date:</strong> ${date}</p>
+              <p><strong>Time:</strong> ${time}</p>
             </div>
-     </div>
-    </div>`
+          </div>
+        </div>
+      
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
+          <img src="${banner}" alt="Event Image" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-3 text-gray-800">${title}</h3>
+            <p class="text-gray-600 mb-4">${description}</p>
+            <div class="text-sm text-gray-700 space-y-2">
+              <p><strong>Email:</strong> ${createdByEmail}</p>
+              <p><strong>Location:</strong> ${location}</p>
+              <p><strong>Date:</strong> ${date}</p>
+              <p><strong>Time:</strong> ${time}</p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
+          <img src="${banner}" alt="Event Image" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-3 text-gray-800">${title}</h3>
+            <p class="text-gray-600 mb-4">${description}</p>
+            <div class="text-sm text-gray-700 space-y-2">
+              <p><strong>Email:</strong> ${createdByEmail}</p>
+              <p><strong>Location:</strong> ${location}</p>
+              <p><strong>Date:</strong> ${date}</p>
+              <p><strong>Time:</strong> ${time}</p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
+          <img src="${banner}" alt="Event Image" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-3 text-gray-800">${title}</h3>
+            <p class="text-gray-600 mb-4">${description}</p>
+            <div class="text-sm text-gray-700 space-y-2">
+              <p><strong>Email:</strong> ${createdByEmail}</p>
+              <p><strong>Location:</strong> ${location}</p>
+              <p><strong>Date:</strong> ${date}</p>
+              <p><strong>Time:</strong> ${time}</p>
+            </div>
+          </div>
+        </div>
+      </div>`
 
-    events_cards_container.innerHTML += cards 
+            events_cards_container.innerHTML += cards
 
-    console.log(event);
-    
+
 
         });
     } catch (err) {
